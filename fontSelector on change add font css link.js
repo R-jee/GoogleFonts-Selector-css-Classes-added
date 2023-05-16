@@ -1,4 +1,4 @@
-function changeGFontOnSelectorChange (elementfontSelector ) {
+function changeGFontOnSelectorChange (elementfontSelector, elementToChangeFamily) {
   $("#"+ elementfontSelector).on("change", function (){
     // console.log($(this).attr("name"));
     if ($(this) && $(this).attr("name") && $(this).val() ) {
@@ -20,7 +20,9 @@ function changeGFontOnSelectorChange (elementfontSelector ) {
       // googleFontLink.href = "https://fonts.googleapis.com/css2?family=" + encodeURIComponent(selectedFont.family);
       // console.log(url);
       googleFontLink.href = url;
+
+      $("#"+ elementToChangeFamily ).css("font-family", $('select[name="rjee_faqs_header_text_font"] option:selected').val());
     }
   });
 }
-changeGFontOnSelectorChange ("rjee_faqs_header_text_font");
+changeGFontOnSelectorChange ("rjee_faqs_header_text_font", "Title-Typography");
